@@ -1,11 +1,119 @@
-/* Diagnostic Styling */
 * {
-  outline: 2px dotted gray;
-} 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-
-/* temp background color */
 body {
-    background: peachpuff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffe6f2; 
+  padding: 2rem;
+  font-family: 'Blippo', fantasy;
+  color: #5a2d3c;  
+}
+
+
+.bento-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  width: 90%;
+  max-width: 1200px;
+  aspect-ratio: 16/9;
+  padding: 1rem;
+  background: white;
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+.bento-item {
+  background: #ffd9e6; 
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #5a2d3c;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.bento-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border-color: #f8bbd0; 
+}
+
+
+.feature-1 {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: #ffccdd; 
+}
+
+.feature-2 {
+  grid-column: span 2;
+  background: #f8bbd0; 
+}
+
+.feature-3 {
+  grid-row: span 2;
+  background: #ffcce5; 
+}
+
+.feature-4 {
+  background: #ff99cc; 
+}
+
+.feature-5 {
+  background: #ffb3d1; 
+}
+
+
+@media (max-width: 768px) {
+  .bento-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    aspect-ratio: auto;
   }
+
+  .feature-1,
+  .feature-2,
+  .feature-3 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .bento-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background: #e6e6fa; 
+  }
+  50% {
+    background: #d8b2ff; 
+  }
+  100% {
+    background: #c09fff; 
+  }
+}
+
+.bento-item:hover {
+  animation: gradient-shift 1.5s infinite alternate;
+}
+
   
